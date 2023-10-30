@@ -15,10 +15,10 @@ public class WhileLoopFun {
      */
     public void printDigits(int number) {
         String convert = "" + number;
-        int digit = 0;
-        while (digit < convert.length()) {
-            System.out.println(convert.substring(digit, digit + 1));
-            digit ++;
+        int digit = convert.length();
+        while (digit > 0) {
+            System.out.println(convert.substring(digit - 1, digit));
+            digit --;
         }
     }
 
@@ -37,8 +37,9 @@ public class WhileLoopFun {
             if (word.substring(letterr, letterr + 1).equals(letter)) {
                 counter ++;
                 letterr ++;
+            } else {
+                letterr++;
             }
-            letterr ++;
         }
         return counter;
     }
@@ -67,6 +68,9 @@ public class WhileLoopFun {
     public int maxDoubles(int number, int threshold) {
         int value = number;
         int times = 0;
+        if (number > threshold) {
+            return times;
+        }
         while (value < threshold) {
             value *= 2;
             times ++;
@@ -102,7 +106,7 @@ public class WhileLoopFun {
                 factor ++;
             }
         }
-        if (fCount > 2) {
+        if (fCount > 2 || fCount < 2) {
             return false;
         }
         return true;
